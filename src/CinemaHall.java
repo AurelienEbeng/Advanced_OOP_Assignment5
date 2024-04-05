@@ -1,4 +1,12 @@
 public class CinemaHall {
+    private int hallNumber;
+    private char [][] seats = new char[10][10];
+
+    public CinemaHall(){}
+    public CinemaHall(CinemaHall c){
+        this.hallNumber = c.getHallNumber();
+        this.seats= c.getSeats();
+    }
     public int getHallNumber() {
         return hallNumber;
     }
@@ -7,14 +15,13 @@ public class CinemaHall {
         this.hallNumber = hallNumber;
     }
 
-    public int getNumOfSeats() {
-        return numOfSeats;
+    public CinemaHall clone(){
+        return new CinemaHall(this);
     }
 
-    public void setNumOfSeats(int numOfSeats) {
-        this.numOfSeats = numOfSeats;
+    public char[][] getSeats() {
+        return seats;
     }
 
-    private int hallNumber;
-    private int numOfSeats;
+
 }

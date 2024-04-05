@@ -7,6 +7,7 @@ public class Movie {
     private List<String> directors;
     private List<String> distributors;
     private String description;
+    private int price;
 
     public String getName() {
         return name;
@@ -77,5 +78,13 @@ public class Movie {
             System.out.println("\t- "+i);
         }
         System.out.println();
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
