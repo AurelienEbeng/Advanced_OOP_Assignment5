@@ -6,10 +6,12 @@ public class Main {
         SpiderMan.setName("SpiderMan");
         SpiderMan.setDescription("SpiderMan");
         SpiderMan.setDuration(120);
+        SpiderMan.setPrice(15);
 
         Movie Avengers = new Movie();
         Avengers.setName("Avengers");
         Avengers.setDuration(150);
+        Avengers.setPrice(13);
 
         AvailableMovies.add(Avengers);
         AvailableMovies.add(SpiderMan);
@@ -26,14 +28,16 @@ public class Main {
         m1.setMovie(SpiderMan);
         m1.setScheduledDate("2024-03-31");
         m1.setStartTime("19:30");
-        m1.setHallNumber(c1.getHallNumber());
+        m1.setCinemaHall(c1.clone());
+
         AvailableShowtimes.addShowtime(m1);
 
         MovieShowtime m2 = new MovieShowtime();
         m2.setMovie(Avengers);
         m2.setScheduledDate("2024-03-31");
         m2.setStartTime("19:30");
-        m2.setHallNumber(c2.getHallNumber());
+        m2.setCinemaHall(c2.clone());
+
         AvailableShowtimes.addShowtime(m2);
 
         AvailableShowtimes.Display();
@@ -55,6 +59,23 @@ public class Main {
 
         CinemaHall cine1Clone = cine1.clone();
         System.out.println(cine1Clone.getHallNumber());
+
+
+        Ticket t1 = new Ticket();
+        t1.setShowtime(AvailableShowtimes.getShowtime(1));
+        t1.reserveSeat(1,1);
+        t1.reserveSeat(5,9);
+        t1.setClientName("Peter");
+        t1.setContact("435 5783 6388");
+        t1.setShowtime(m2);
+
+        t1.calculateTotalPrice();
+        t1.Display();
+
+        // updated ticket
+        // the cinema hall variable was added to showtime
+        // getMovie in MovieShowtime returns a movie
+        // added reserveSeat in Ticket, MovieShowtime and CinemaHall
     }
 
 

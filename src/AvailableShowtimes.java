@@ -23,4 +23,8 @@ public class AvailableShowtimes {
             availableShowtimes[i].Display();
         }
     }
+
+    public static MovieShowtime getShowtime(int c){
+        return availableShowtimes[c];
+    }
 }

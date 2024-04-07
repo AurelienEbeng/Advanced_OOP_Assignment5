@@ -4,6 +4,7 @@ public class CinemaHall {
 
     public CinemaHall(){}
     public CinemaHall(CinemaHall c){
+        //this();
         this.hallNumber = c.getHallNumber();
         this.seats= c.getSeats();
     }
@@ -19,9 +20,20 @@ public class CinemaHall {
         return new CinemaHall(this);
     }
 
-    public char[][] getSeats() {
-        return seats;
+    private char[][] getSeats(){
+        return this.seats;
+    }
+    public void reserveSeat(int row, int column){
+        this.seats[row][column]='X';
     }
 
+    public void displaySeats(){
+        for(char[] column: this.seats){
+            for(char s: column){
+                System.out.println(s);
+            }
+            System.out.println();
+        }
+    }
 
 }

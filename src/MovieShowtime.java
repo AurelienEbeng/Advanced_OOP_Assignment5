@@ -7,11 +7,11 @@ public class MovieShowtime {
     private Movie movie;
     private LocalTime startTime;
     private LocalTime endTime;
-    private int hallNumber;
+    private CinemaHall cinemaHall;
     private LocalDate scheduledDate;
 
-    public String getMovie() {
-        return movie.getName();
+    public Movie getMovie() {
+        return movie;
     }
 
     public void setMovie(Movie movie) {
@@ -35,14 +35,6 @@ public class MovieShowtime {
         this.endTime = this.startTime.plusMinutes(movie.getDuration());
     }
 
-    public int getHallNumber() {
-        return hallNumber;
-    }
-
-    public void setHallNumber(int hallNumber) {
-        this.hallNumber = hallNumber;
-    }
-
     public LocalDate getScheduledDate() {
         return scheduledDate;
     }
@@ -51,9 +43,19 @@ public class MovieShowtime {
         this.scheduledDate = LocalDate.parse(scheduledDate);
     }
 
+    public void setCinemaHall(CinemaHall c){
+        this.cinemaHall = c;
+    }
+    public int getHallNumber(){
+        return this.cinemaHall.getHallNumber();
+    }
+
+    public void reserveSeat(int row, int column){
+        this.cinemaHall.reserveSeat(row,column);
+    }
     public void Display(){
         System.out.println("Movie "+movie.getName()+" From "+startTime+" to "+endTime
-        +" on "+scheduledDate+ " Hall: "+ hallNumber);
+        +" on "+scheduledDate+ " Hall: "+ cinemaHall.getHallNumber());
         System.out.println();
     }
 }
