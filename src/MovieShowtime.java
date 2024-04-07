@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
@@ -40,7 +41,8 @@ public class MovieShowtime {
     }
 
     public void setScheduledDate(String scheduledDate) {
-        this.scheduledDate = LocalDate.parse(scheduledDate);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        this.scheduledDate = LocalDate.parse(scheduledDate, formatter);
     }
 
     public void setCinemaHall(CinemaHall c){
@@ -53,9 +55,12 @@ public class MovieShowtime {
     public void reserveSeat(int row, int column){
         this.cinemaHall.reserveSeat(row,column);
     }
+    
     public void Display(){
         System.out.println("Movie "+movie.getName()+" From "+startTime+" to "+endTime
         +" on "+scheduledDate+ " Hall: "+ cinemaHall.getHallNumber());
         System.out.println();
     }
+
+    // Added the Regex Format for the setSceduleDate();
 }
